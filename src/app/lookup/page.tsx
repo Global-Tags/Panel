@@ -76,7 +76,7 @@ export default function Lookup() {
                     uuid = result.uuid;
                     name = result.username;
                 } catch(error: any) {
-                    setError(error?.message || "Failed to retrieve username!");
+                    setError(error?.message || "Failed to retrieve uuid from username!");
                     setLoading(false);
                     return;
                 }
