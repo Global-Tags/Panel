@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
     title: "GlobalTags",
@@ -13,9 +15,15 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en">
-        <body className={"antialiased"}>
-            {children}
-        </body>
+            <body className={"antialiased"}>
+            <div className="flex flex-col bg-gray-900 min-h-screen">
+                <Header />
+                <main className="flex justify-center flex-grow container mx-auto px-4 py-8">
+                    {children}
+                </main>
+                <Footer />
+            </div>
+            </body>
         </html>
     );
 }
