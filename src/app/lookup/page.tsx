@@ -68,13 +68,13 @@ export default function Lookup() {
             let name, uuid = query;
             if(!uuidRegex.test(query)) {
                 try {
-                    const response = await fetch(`https://api.ashcon.app/mojang/v2/user/${query}`);
+                    const response = await fetch(`https://api.minetools.eu/uuid/${query}`);
                     const result = await response.json();
-                    if (!response.ok) {
-                        throw new Error(result.reason);
+                    if (!response.ok || !result.id) {
+                        throw new Error("There is no player with this name!");
                     }
-                    uuid = result.uuid;
-                    name = result.username;
+                    uuid = result.id;
+                    name = result.name;
                 } catch(error: any) {
                     setError(error?.message || "Failed to retrieve uuid from username!");
                     setLoading(false);
