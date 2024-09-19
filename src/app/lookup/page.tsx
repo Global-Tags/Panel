@@ -5,27 +5,27 @@ import { minecraft } from '../fonts';
 export const uuidRegex = /[a-f0-9]{8}(?:-[a-f0-9]{4}){4}[a-f0-9]{8}|[a-f0-9]{8}(?:[a-f0-9]{4}){4}[a-f0-9]{8}/;
 
 const colorCodeMapping: any = {
-    '0': '#000000', // Black
-    '1': '#0000AA', // Dark Blue
-    '2': '#00AA00', // Dark Green
-    '3': '#00AAAA', // Dark Aqua
-    '4': '#AA0000', // Dark Red
-    '5': '#AA00AA', // Dark Purple
-    '6': '#FFAA00', // Gold
-    '7': '#AAAAAA', // Gray
-    '8': '#555555', // Dark Gray
-    '9': '#5555FF', // Blue
-    'a': '#55FF55', // Green
-    'b': '#55FFFF', // Aqua
-    'c': '#FF5555', // Red
-    'd': '#FF55FF', // Light Purple
-    'e': '#FFFF55', // Yellow
-    'f': '#FFFFFF', // White
+    '0': '#000000',
+    '1': '#0000AA',
+    '2': '#00AA00',
+    '3': '#00AAAA',
+    '4': '#AA0000',
+    '5': '#AA00AA',
+    '6': '#FFAA00',
+    '7': '#AAAAAA',
+    '8': '#555555',
+    '9': '#5555FF',
+    'a': '#55FF55',
+    'b': '#55FFFF',
+    'c': '#FF5555',
+    'd': '#FF55FF',
+    'e': '#FFFF55',
+    'f': '#FFFFFF',
 };
   
 const parseMinecraftTag = (tag: string) => {
-    const colorCodePattern = /&([0-9a-fk-or])/g; // Regex to match Minecraft color codes
-    const parts = tag.split(colorCodePattern); // Split by color codes
+    const colorCodePattern = /&([0-9a-fk-or])/g;
+    const parts = tag.split(colorCodePattern);
     const elements = [];
 
     for (let i = 0; i < parts.length; i++) {
@@ -33,7 +33,7 @@ const parseMinecraftTag = (tag: string) => {
             elements.push(parts[i]);
         } else {
             const colorCode = parts[i];
-            const color: string = colorCodeMapping[colorCode] || '#FFFFFF'; // Default to white if color code is not found
+            const color: string = colorCodeMapping[colorCode] || '#FFFFFF';
             elements.push(<span key={i} style={{ color }}>{parts[++i]}</span>);
         }
     }
@@ -57,7 +57,6 @@ export default function Lookup() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    // Function to handle the API request
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         if(!query) return;
@@ -66,10 +65,10 @@ export default function Lookup() {
         setError(null);
 
         try {
-            let name, uuid;
+            let name, uuid = query;
             if(!uuidRegex.test(query)) {
                 try {
-                    const response = await fetch(`https://api.ashcon.app/mojang/v2/user/${query}`); // Use query in the request URL
+                    const response = await fetch(`https://api.ashcon.app/mojang/v2/user/${query}`);
                     const result = await response.json();
                     if (!response.ok) {
                         throw new Error(result.reason);
@@ -83,7 +82,7 @@ export default function Lookup() {
                 }
             }
             
-            const response = await fetch(`${config.apiUrl}/players/${uuid}`); // Use query in the request URL
+            const response = await fetch(`${config.apiUrl}/players/${uuid}`);
             const result = await response.json();
             if (!response.ok) {
                 throw new Error(result.error);
