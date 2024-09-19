@@ -1,7 +1,45 @@
 "use client"
 import { FormEvent, useState } from 'react';
 import { config } from '../config';
+import { minecraft } from '../fonts';
 export const uuidRegex = /[a-f0-9]{8}(?:-[a-f0-9]{4}){4}[a-f0-9]{8}|[a-f0-9]{8}(?:[a-f0-9]{4}){4}[a-f0-9]{8}/;
+
+const colorCodeMapping: any = {
+    '0': '#000000', // Black
+    '1': '#0000AA', // Dark Blue
+    '2': '#00AA00', // Dark Green
+    '3': '#00AAAA', // Dark Aqua
+    '4': '#AA0000', // Dark Red
+    '5': '#AA00AA', // Dark Purple
+    '6': '#FFAA00', // Gold
+    '7': '#AAAAAA', // Gray
+    '8': '#555555', // Dark Gray
+    '9': '#5555FF', // Blue
+    'a': '#55FF55', // Green
+    'b': '#55FFFF', // Aqua
+    'c': '#FF5555', // Red
+    'd': '#FF55FF', // Light Purple
+    'e': '#FFFF55', // Yellow
+    'f': '#FFFFFF', // White
+};
+  
+const parseMinecraftTag = (tag: string) => {
+    const colorCodePattern = /&([0-9a-fk-or])/g; // Regex to match Minecraft color codes
+    const parts = tag.split(colorCodePattern); // Split by color codes
+    const elements = [];
+
+    for (let i = 0; i < parts.length; i++) {
+        if (i % 2 === 0) {
+            elements.push(parts[i]);
+        } else {
+            const colorCode = parts[i];
+            const color: string = colorCodeMapping[colorCode] || '#FFFFFF'; // Default to white if color code is not found
+            elements.push(<span key={i} style={{ color }}>{parts[++i]}</span>);
+        }
+    }
+
+    return elements;
+};
 
 type TagData = {
     uuid: string,
@@ -115,7 +153,7 @@ export default function Lookup() {
                             {data.icon != "none" && (
                                 <img src={`https://cdn.rappytv.com/globaltags/icons/${data.icon}.png`} alt={data.icon} className="w-6 h-6" />
                             )}
-                            <span className={`ml-1 text-lg`}>{data.tag}</span>
+                            <span className={`ml-1 text-lg ${minecraft.className}`}>{parseMinecraftTag(data.tag)}</span>
                         </div>
                     ) : <p>Tag: <span className="font-medium">No tag</span></p>}
                     <p>Tag Position: <span className="font-medium">{capitalize(data.position)}</span></p>
