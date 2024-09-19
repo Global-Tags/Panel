@@ -30,7 +30,7 @@ export default function Footer() {
                         <FaDiscord size={24} />
                     </Link>
                     <Link
-                        href="https://github.com/Global-Tags"
+                        href="/github"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-gray-300 hover:text-white transition-colors duration-300"
@@ -43,7 +43,7 @@ export default function Footer() {
                 <div className="border-t border-gray-700 my-4"></div>
 
                 <p className="text-center text-gray-400 text-sm">
-                &copy; {new Date().getFullYear()} GlobalTags. All rights reserved.
+                    &copy; {new Date().getFullYear()} GlobalTags. All rights reserved.
                 </p>
             </div>
         </footer>
