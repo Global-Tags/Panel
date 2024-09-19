@@ -2,7 +2,7 @@
 import { FormEvent, useState } from 'react';
 import { config } from '../config';
 import { minecraft } from '../fonts';
-export const uuidRegex = /[a-f0-9]{8}(?:-[a-f0-9]{4}){4}[a-f0-9]{8}|[a-f0-9]{8}(?:[a-f0-9]{4}){4}[a-f0-9]{8}/;
+const uuidRegex = /[a-f0-9]{8}(?:-[a-f0-9]{4}){4}[a-f0-9]{8}|[a-f0-9]{8}(?:[a-f0-9]{4}){4}[a-f0-9]{8}/;
 
 const colorCodeMapping: any = {
     '0': '#000000',
@@ -22,7 +22,7 @@ const colorCodeMapping: any = {
     'e': '#FFFF55',
     'f': '#FFFFFF',
 };
-  
+
 const parseMinecraftTag = (tag: string) => {
     const colorCodePattern = /&([0-9a-fk-or])/g;
     const parts = tag.split(colorCodePattern);
