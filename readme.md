@@ -5,7 +5,7 @@ Welcome to the GlobalTags panel!
 ## Table of Contents
 - [Introduction](#introduction)
 - [Features](#features)
-- [Getting Started](#getting-started)
+- [Getting Started](#contributing)
 - [Exploring the API](#exploring-the-api)
 - [Viewing Current Stats](#viewing-current-stats)
 - [License](#license)
@@ -40,7 +40,7 @@ To dive deeper into the capabilities of the GlobalTags API, click the button bel
 
 Stay updated with the latest statistics related to the GlobalTags API. Click the button below to view current stats:
 
-[View Current Stats](https://.rappytv.com/stats)
+[View Current Stats](https://gt.rappy.me/stats)
 
 ## License
 
