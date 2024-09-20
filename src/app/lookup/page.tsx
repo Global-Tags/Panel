@@ -59,7 +59,7 @@ export default function Lookup() {
 
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-        if(!query) return;
+        if(!query || query.trim().length < 1) return;
 
         setLoading(true);
         setError(null);
