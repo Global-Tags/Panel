@@ -22,6 +22,9 @@ export default function Header() {
                         <Link href="/lookup" className="hover:text-blue-500">Lookup</Link>
                     </li>
                     <li>
+                        <Link href="/team" className="hover:text-blue-500">Team</Link>
+                    </li>
+                    <li>
                         <Link href="/dashboard" className="hover:text-blue-500">Dashboard</Link>
                     </li>
                 </ul>
