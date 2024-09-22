@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     openGraph: {
         title: 'Home',
         siteName: 'GlobalTags'
+    },
+    twitter: {
+        card: 'summary'
     }
 };
 
