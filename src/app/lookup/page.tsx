@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import TagLookup from '@/components/TagLookup';
+import TagLookup from './TagLookup';
 
 export const metadata: Metadata = {
     title: 'Tag Lookup',
@@ -12,5 +12,7 @@ export const metadata: Metadata = {
 }
 
 export default function Lookup() {
-    return TagLookup();
+    return (
+        <TagLookup />
+    );
 }
