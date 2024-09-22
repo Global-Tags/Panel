@@ -1,12 +1,29 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-    title: "GlobalTags",
-    description: "The minecraft mod which shows your custom tag next to your name tag.",
+    title: {
+        template: 'GlobalTags | %s',
+        default: 'GlobalTags',
+        absolute: 'GlobalTags | Home'
+    },
+    description: 'The minecraft mod which shows your custom tag next to your name tag.',
+    robots: {
+        index: true,
+        follow: true,
+        nocache: true
+    },
+    openGraph: {
+        title: 'Home',
+        siteName: 'GlobalTags'
+    }
 };
+
+export const viewport: Viewport = {
+    themeColor: '#3b82f6'
+}
 
 export default function RootLayout({
     children,

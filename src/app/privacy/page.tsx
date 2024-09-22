@@ -1,5 +1,16 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import React from 'react';
+
+export const metadata: Metadata = {
+    title: 'Privacy Policy',
+    description: 'The Privacy Policy of the GlobalTags API',
+    openGraph: {
+        title: 'Privacy Policy',
+        siteName: 'GlobalTags',
+        images: '/opengraph-image.png'
+    }
+}
 
 export default function Privacy() {
     return (
