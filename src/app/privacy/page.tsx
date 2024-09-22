@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     }
 }
 
-export default function Privacy() {
+export default function PrivacyPolicy() {
     return (
         <div className="bg-gray-900 text-gray-300 min-h-screen flex flex-col">
             <div className="container mx-auto px-4 py-8 bg-gray-800 rounded-lg shadow-lg flex-1">
