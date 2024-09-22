@@ -1,8 +1,7 @@
 "use client"
 import { FormEvent, useState } from 'react';
-import { config } from '../config';
 import { minecraft } from '../fonts';
-const uuidRegex = /[a-f0-9]{8}(?:-[a-f0-9]{4}){4}[a-f0-9]{8}|[a-f0-9]{8}(?:[a-f0-9]{4}){4}[a-f0-9]{8}/;
+import TagData from '@/types/TagData';
 
 const colorCodeMapping: any = {
     '0': '#000000',
@@ -41,16 +40,6 @@ const parseMinecraftTag = (tag: string) => {
     return elements;
 };
 
-type TagData = {
-    uuid: string,
-    username?: string | null,
-    tag?: string | null,
-    position: string,
-    icon: string,
-    roles: string[],
-    referrals: number
-}
-
 export default function Lookup() {
     const [query, setQuery] = useState('');
     const [data, setData] = useState<TagData | null>(null);
@@ -65,31 +54,13 @@ export default function Lookup() {
         setError(null);
 
         try {
-            let name, uuid = query;
-            if(!uuidRegex.test(query)) {
-                try {
-                    const response = await fetch(`https://api.minetools.eu/uuid/${query}`);
-                    const result = await response.json();
-                    if (!response.ok || !result.id) {
-                        throw new Error("There is no player with this name!");
-                    }
-                    uuid = result.id;
-                    name = result.name;
-                } catch(error: any) {
-                    setError(error?.message || "Failed to retrieve uuid from username!");
-                    setLoading(false);
-                    return;
-                }
-            }
-            
-            const response = await fetch(`${config.apiUrl}/players/${uuid}`);
+            const response = await fetch(`/api/lookup/${query}`);
             const result = await response.json();
-            if (!response.ok) {
-                throw new Error(result.error);
-            }
+            if(!response.ok) throw new Error(result.error);
+
             setData({
-                uuid,
-                username: name,
+                uuid: result.uuid,
+                username: result.username,
                 tag: result.tag,
                 position: result.position,
                 icon: result.icon.toLowerCase(),
@@ -118,7 +89,6 @@ export default function Lookup() {
             {error && (
                 <p className="text-red-500 text-lg">{error}</p>
             )}
-
 
             <form onSubmit={handleSubmit} className="mt-4 mb-6 w-72 max-w-md">
                 <input
