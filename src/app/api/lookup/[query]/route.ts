@@ -17,7 +17,7 @@ export async function GET(request: NextRequest, { params: { query } }: { params:
             }
         }
 
-        const response = await fetch(`${config.apiUrl}/players/${uuid}`);
+        const response = await fetch(`${config.apiUrl}/players/${uuid}`, { headers: { 'Authorization': `Bearer ${config.apiAuth}` } });
         const result = await response.json();
         if(!response.ok) return new NextResponse(JSON.stringify({ error: result.error || 'Failed to retrieve tag data!' }), { status: response.status });
 
