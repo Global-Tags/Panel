@@ -5,8 +5,7 @@ export default function Header() {
     return (
         <header className="bg-gray-800 shadow-md py-4">
             <nav className="container mx-auto flex justify-between items-center px-4">
-                <div className="flex-1"></div>
-                <div className="text-3xl text-blue-500">
+                <div className="flex-1 hidden md:flex">
                     <Image
                         src="/icon.png"
                         alt="Global-Tags"
