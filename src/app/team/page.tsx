@@ -5,7 +5,7 @@ import { config } from '../config';
 const { team: members } = config;
 
 const EmptyBox = () => (
-    <div className="flex flex-col items-center bg-gray-800 p-4 rounded-lg shadow-md opacity-50" />
+    <div className="flex-col items-center bg-gray-800 p-4 rounded-lg shadow-md opacity-50 hidden md:flex" />
 );
 
 const TeamMember = ({ id, username, description }: { id: string, username: string, description: string }) => (
