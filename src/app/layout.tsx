@@ -2,8 +2,10 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { config } from "./config";
 
 export const metadata: Metadata = {
+    metadataBase: new URL(config.appUrl),
     title: {
         template: 'GlobalTags | %s',
         default: 'GlobalTags',
