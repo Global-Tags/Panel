@@ -12,7 +12,5 @@ export const metadata: Metadata = {
 }
 
 export default function Lookup() {
-    return (
-        <TagLookup />
-    );
+    return TagLookup();
 }
