@@ -11,7 +11,7 @@ export const metadata: Metadata = {
         default: 'GlobalTags',
         absolute: 'GlobalTags | Home'
     },
-    description: 'The minecraft mod which shows your custom tag next to your name tag.',
+    description: 'The minecraft mod which shows an additional custom nameplate of your choice above, below or next to your nametag.',
     robots: {
         index: true,
         follow: true,
