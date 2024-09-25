@@ -6,8 +6,12 @@ export default function Footer() {
         <footer className="bg-gray-800 text-gray-300 py-8">
             <div className="container mx-auto px-4">
                 <div className="flex flex-col md:flex-row justify-between items-center">
-                {/* Footer navigation */}
                 <ul className="flex space-x-8 mb-4 md:mb-0">
+                    <li>
+                        <Link href="https://docs.globaltags.xyz" className="hover:text-white">
+                            Documentation
+                        </Link>
+                    </li>
                     <li>
                         <Link href="/terms" className="hover:text-white">
                             Terms of Service
