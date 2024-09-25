@@ -2,6 +2,8 @@ import { config } from "@/app/config";
 import { NextRequest, NextResponse } from "next/server";
 const uuidRegex = /[a-f0-9]{8}(?:-[a-f0-9]{4}){4}[a-f0-9]{8}|[a-f0-9]{8}(?:[a-f0-9]{4}){4}[a-f0-9]{8}/;
 
+export const revalidate = 0;
+
 export async function GET(request: NextRequest, { params: { query } }: { params: { query: string } }) {
     try {
         let name, uuid = query;
