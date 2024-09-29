@@ -22,7 +22,7 @@ export default function Home() {
                 This personalized tag will be visible to all other players who have one of the GlobalTags mods installed, creating a rich, customized experience across your Minecraft community.
             </p>
 
-            <div className="mt-8 justify-center gap-4">
+            <div className="mt-8 flex flex-col md:flex-row justify-center gap-4">
                 <Link
                     href="https://github.com/Global-Tags/API#-known-usages"
                     className="bg-blue-500 px-6 py-3 rounded-lg text-lg font-semibold text-white hover:bg-blue-600 transition-colors"
@@ -33,7 +33,7 @@ export default function Home() {
                 </Link>
                 <Link
                     href="/stats"
-                    className="bg-green-500 ml-2 px-6 py-3 rounded-lg text-lg font-semibold text-white hover:bg-green-600 transition-colors"
+                    className="bg-green-500 md:ml-2 px-6 py-3 rounded-lg text-lg font-semibold text-white hover:bg-green-600 transition-colors"
                     target="_blank" 
                     rel="noopener noreferrer"
                 >
