@@ -8,7 +8,12 @@ export default function Footer() {
                 <div className="flex flex-col md:flex-row justify-between items-center">
                 <ul className="flex space-x-8 mb-4 md:mb-0">
                     <li>
-                        <Link href="https://docs.globaltags.xyz" className="hover:text-white">
+                        <Link
+                            href="https://docs.globaltags.xyz"
+                            className="hover:text-white"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
                             Documentation
                         </Link>
                     </li>
