@@ -71,7 +71,6 @@ const TeamCategory = ({ title, members }: { title: string, members: typeof team 
 }
 
 export default function TeamPage() {
-    // Filter members by categories
     const admins = team.filter(member => member.category === 'admin');
     const developers = team.filter(member => member.category === 'developer');
     const moderators = team.filter(member => member.category === 'moderator');
