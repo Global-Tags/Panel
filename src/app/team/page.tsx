@@ -10,31 +10,32 @@ const EmptyBox = () => (
 
 const TeamMember = ({ id, username, description, joinedAt }: { id: string, username: string, description: string, joinedAt: number }) => (
     <div className="relative flex flex-col items-center bg-gray-800 p-4 rounded-lg shadow-md cursor-pointer">
-    <div className="mt-2 w-24 h-24 mb-4 group relative">
-      <Image
-        src={`https://id.rappytv.com/${id}/icon`}
-        alt={username}
-        width={96}
-        height={96}
-        className="rounded-full"
-      />
-      {/* Hover effect: display join date */}
-      <div className="absolute inset-0 bg-gray-900 bg-opacity-75 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-        <p className="text-white text-sm">{`Joined: ${new Date(joinedAt).toLocaleDateString()}`}</p>
-      </div>
+        <div className="mt-2 w-24 h-24 mb-4 group relative">
+            <Image
+                src={`https://id.rappytv.com/${id}/icon`}
+                alt={username}
+                width={96}
+                height={96}
+                className="rounded-full"
+            />
+            {joinedAt > 0 && (
+                <div className="absolute inset-0 bg-gray-900 bg-opacity-75 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <p className="text-white text-sm">{`Joined: ${new Date(joinedAt).toLocaleDateString()}`}</p>
+                </div>
+            )}
+        </div>
+        <h3 className={`text-2xl font-semibold text-gray-100 mb-2 ${minecraft.className}`}>{username}</h3>
+        <p className="text-lg text-gray-400 text-center">{description}</p>
+        <Link href={`https://laby.net/${username}`} target='_blank' rel='noopener noreferrer' className='mt-2 text-blue-500 hover:text-blue-400 flex items-center'>
+            <Image
+                src='/laby.png'
+                alt='laby.net Profile'
+                width={24}
+                height={24}
+                className='inline-block transition-transform duration-300 ease-in-out hover:translate-y-[-2px]'
+            />
+        </Link>
     </div>
-    <h3 className={`text-2xl font-semibold text-gray-100 mb-2 ${minecraft.className}`}>{username}</h3>
-    <p className="text-lg text-gray-400 text-center">{description}</p>
-    <Link href={`https://laby.net/${username}`} target='_blank' rel='noopener noreferrer' className='mt-2 text-blue-500 hover:text-blue-400 flex items-center'>
-        <Image
-            src='/laby.png'
-            alt='laby.net Profile'
-            width={24}
-            height={24}
-            className='inline-block transition-transform duration-300 ease-in-out hover:translate-y-[-2px]'
-        />
-    </Link>
-  </div>
 );
 
 const TeamCategory = ({ title, members }: { title: string, members: typeof team }) => {
