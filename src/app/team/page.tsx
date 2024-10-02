@@ -2,7 +2,18 @@ import Image from 'next/image';
 import { minecraft } from '../fonts';
 import Link from 'next/link';
 import { config } from '../config';
+import { Metadata } from 'next';
 const { team: { categories, members: team } } = config;
+
+export const metadata: Metadata = {
+    title: 'Team',
+    description: 'Meet the GlobalTags Team which works hard to make GlobalTags the best experience for you.',
+    openGraph: {
+        title: 'Team',
+        siteName: 'GlobalTags',
+        images: '/opengraph-image.png'
+    }
+}
 
 const EmptyBox = () => (
     <div className="flex-col items-center bg-gray-800 p-4 rounded-lg shadow-md opacity-50 hidden md:flex" />
