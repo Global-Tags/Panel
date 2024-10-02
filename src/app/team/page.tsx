@@ -2,7 +2,18 @@ import Image from 'next/image';
 import { minecraft } from '../fonts';
 import Link from 'next/link';
 import { config } from '../config';
+import { Metadata } from 'next';
 const { team: { categories, members: team } } = config;
+
+export const metadata: Metadata = {
+    title: 'Team',
+    description: 'Meet the GlobalTags Team which works hard to make GlobalTags the best experience for you.',
+    openGraph: {
+        title: 'Team',
+        siteName: 'GlobalTags',
+        images: '/opengraph-image.png'
+    }
+}
 
 const EmptyBox = () => (
     <div className="flex-col items-center bg-gray-800 p-4 rounded-lg shadow-md opacity-50 hidden md:flex" />
@@ -20,7 +31,7 @@ const TeamMember = ({ id, username, description, joinedAt }: { id: string, usern
             />
             {joinedAt > 0 && (
                 <div className="absolute inset-0 bg-gray-900 bg-opacity-75 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <p className="text-white text-sm">{`Joined: ${new Date(joinedAt).toLocaleDateString()}`}</p>
+                    <p className="text-white text-sm">{`Joined: ${new Date(joinedAt).toLocaleDateString(config.locale)}`}</p>
                 </div>
             )}
         </div>
