@@ -63,7 +63,7 @@ const TeamCategory = ({ title, members }: { title: string, members: typeof team 
                         ))}
                     </>
                 ) : (
-                    <p className="text-lg text-gray-400 col-span-full">No {title.toLowerCase()} available.</p>
+                    <p className="text-lg text-gray-400 col-span-full">The {title.toLowerCase()} team is empty.</p>
                 )}
             </div>
         </div>
