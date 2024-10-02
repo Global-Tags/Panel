@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { minecraft } from '../fonts';
 import Link from 'next/link';
 import { config } from '../config';
-const { team } = config;
+const { team: { categories, members: team } } = config;
 
 const EmptyBox = () => (
     <div className="flex-col items-center bg-gray-800 p-4 rounded-lg shadow-md opacity-50 hidden md:flex" />
@@ -71,10 +71,6 @@ const TeamCategory = ({ title, members }: { title: string, members: typeof team 
 }
 
 export default function TeamPage() {
-    const admins = team.filter(member => member.category === 'admin');
-    const developers = team.filter(member => member.category === 'developer');
-    const moderators = team.filter(member => member.category === 'moderator');
-
     return (
         <div className="container mx-auto px-6 py-12 text-center">
             <h2 className="text-4xl font-bold mb-6 text-gray-100">Meet the GlobalTags Team</h2>
@@ -82,9 +78,15 @@ export default function TeamPage() {
                 Our dedicated team works hard to make GlobalTags the best experience for you.
             </p>
 
-            <TeamCategory title="Administration" members={admins} />
-            <TeamCategory title="Development" members={developers} />
-            <TeamCategory title="Discord Moderation" members={moderators} />
+            {categories.length > 0 ? categories.map((category, key) => (
+                <TeamCategory
+                    key={key}
+                    title={category.name}
+                    members={team.filter(member => member.category === category.id)}
+                />
+            )) : (
+                <p className="text-lg text-gray-400 col-span-full">There are no team categories.</p>
+            )}
         </div>
     );
 }
