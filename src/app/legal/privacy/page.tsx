@@ -39,7 +39,7 @@ export default function PrivacyPolicy() {
                 <li><strong>Roles:</strong> Roles assigned to you within the GlobalTags system.</li>
                 <li><strong>Referrals:</strong> Information regarding any users you have invited to use GlobalTags.</li>
                 <li><strong>Ban Information:</strong> Details about any bans or restrictions imposed on your account.</li>
-                <li><strong>Social Connections:</strong> Data about social media accounts which you linked to your account.</li>
+                <li><strong>Social Connections:</strong> Data about social media accounts which you linked to your account. These connections are opt-in.</li>
                 <li><strong>API Keys:</strong> If applicable, your API keys for accessing the system.</li>
                 </ul>
 
