@@ -1,91 +1,72 @@
-import Soon from "@/components/Soon";
 import { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-    title: 'Terms of Service',
-    description: 'The Terms of Service of the GlobalTags API',
+    title: 'General Terms and Conditions',
+    description: 'The General Terms and Conditions of GlobalTags',
     openGraph: {
-        title: 'Terms of Service',
+        title: 'General Terms and Conditions',
         siteName: 'GlobalTags',
         images: '/opengraph-image.png'
     }
 }
 
-export default function TermsOfService() {
+export default function GeneralTermsAndConditions() {
     return (
         <div className="bg-gray-900 text-gray-300 min-h-screen flex flex-col">
             <div className="container mx-auto px-4 py-8 bg-gray-800 rounded-lg shadow-lg flex-1">
-                <h1 className="text-3xl font-bold text-blue-500 mb-6 text-center">Terms of Service for the GlobalTags API</h1>
+                <h1 className="text-3xl font-bold text-blue-500 mb-6 text-center">AGB für die GlobalTags API</h1>
                 
-                <p className="mb-4"><strong>Effective Date:</strong> 22.09.2024</p>
-                
-                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">1. Acceptance of Terms</h2>
+                <p className="mb-4"><strong>Gültig ab:</strong> 22.09.2024</p>
                 <p className="mb-4">
-                    By using any GlobalTags Mod wrapper and its associated API, you agree to be bound by these Terms of Service. If you do not agree to these terms, please refrain from using the GlobalTags system. We reserve the right to modify these terms at any time. Changes will be posted on this page with an updated "Effective Date."
+                    Bei Problemen oder Fragen bitte an <Link href="mailto:contact@globaltags.xyz" className="text-blue-400 hover:underline">contact@globaltags.xyz</Link> wenden.
+                </p>
+                
+                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">1. Annahme der Bedingungen</h2>
+                <p className="mb-4">
+                    Mit der Nutzung eines beliebigen GlobalTags Mod Wrappers und der zugehörigen API erklären Sie sich mit diesen Allgemeinen Geschäftsbedingungen (AGB) einverstanden. Wenn Sie diesen Bedingungen nicht zustimmen, nutzen Sie das GlobalTags-System bitte nicht. Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern. Änderungen werden auf dieser Seite mit einem aktualisierten "Gültig ab"-Datum veröffentlicht.
                 </p>
 
-                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">2. User Responsibilities</h2>
+                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">2. Pflichten des Nutzers</h2>
                 <p className="mb-4">
-                    You are responsible for all activities conducted through your account within the GlobalTags system. This includes:
+                    Sie sind für alle Aktivitäten verantwortlich, die über Ihr Konto im GlobalTags-System durchgeführt werden. Dies umfasst:
                 </p>
                 <ul className="list-disc pl-5 mb-4">
-                    <li>Setting and managing your tags, tag positions, and icons.</li>
-                    <li>Ensuring that any data or content you provide does not violate any third-party rights or applicable laws.</li>
-                    <li>Keeping your account information secure, including API keys if applicable.</li>
+                    <li>Das Setzen und Verwalten Ihrer Tags, Tag-Positionen und Icons.</li>
+                    <li>Sicherzustellen, dass die von Ihnen bereitgestellten Daten oder Inhalte keine Rechte Dritter oder geltendes Recht verletzen.</li>
+                    <li>Die Sicherheit Ihrer Kontoinformationen zu gewährleisten, einschließlich API-Keys, falls zutreffend.</li>
                 </ul>
 
-                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">3. Use of the Service</h2>
+                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">3. Nutzung des Dienstes</h2>
                 <p className="mb-4">
-                    The GlobalTags system is provided for use by players and developers in the Minecraft community. We allow a lot of freedom in the choice of tags, but there are some limits that must not be exceeded. Your use of the service is subject to the following conditions:
-                </p>
-                <ol className="list-decimal pl-5 mb-4">
-                    <li>Advertisement of any kind <b>is allowed</b>. <i>duh</i></li>
-                    <li>Any form of racism/extremism is <b>not</b> allowed.</li>
-                    <li>Sharing any information about another person without their consent is <b>strictly forbidden</b>. This is also referred to as doxing.</li>
-                </ol>
-
-                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">4. Data Collection and Privacy</h2>
-                <p className="mb-4">
-                    By using the GlobalTags API, you agree to the collection and use of data as described in the <Link href="#" className="text-blue-400 hover:underline">Privacy Policy</Link>. This includes the storage of UUIDs, Minecraft versions, tag history, reports, roles, and any other data necessary for the system’s functionality.
+                    Das GlobalTags-System steht Spielern und Entwicklern in der Minecraft-Community zur Verfügung. Es besteht eine große Freiheit bei der Wahl der Tags, jedoch gibt es einige Grenzen, die nicht überschritten werden dürfen. Die Regeln zur Nutzung des Dienstes finden sie in unserer <Link href="https://docs.globaltags.xyz/rules" className="text-blue-400 hover:underline" target="_blank">Dokumentation</Link>.
                 </p>
 
-                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">5. Tag Management and Removal</h2>
+                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">4. Datenerfassung und Datenschutz</h2>
                 <p className="mb-4">
-                    You may request the deletion of your tag at any time. Please be aware that the removal of your data will prevent you from setting any tags in the future. Data removal requests can be submitted through our <Link href="/discord" className="text-blue-400 hover:underline">Discord server</Link>.
+                    Durch die Nutzung der GlobalTags API erklären Sie sich mit der Erfassung und Nutzung von Daten gemäß der <Link href="/legal/privacy" className="text-blue-400 hover:underline">Datenschutzerklärung</Link> einverstanden. Dies umfasst die Speicherung von UUIDs, Minecraft-Versionen, Tag-Verlauf, Reports, Rollen und anderen Daten, die für die Funktionalität des Systems erforderlich sind.
                 </p>
 
-                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">6. Prohibited Conduct</h2>
+                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">5. Verwaltung und Löschung von Tags</h2>
                 <p className="mb-4">
-                    The following actions are strictly prohibited while using GlobalTags:
-                </p>
-                <ul className="list-disc pl-5 mb-4">
-                    <li>Falsely attributing tags.</li>
-                    <li>Violating any applicable laws or regulations.</li>
-                    <li>Exploiting bugs or vulnerabilities within the API or mod to gain unfair advantage.</li>
-                    <li>Harassing or bullying other users through the system.</li>
-                </ul>
-                <p className="mb-4">Violations of these rules may result in a suspension from GlobalTags services.</p>
-
-                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">7. Account Suspension and Bans</h2>
-                <p className="mb-4">
-                    GlobalTags reserves the right to suspend or ban users at its discretion for violating these Terms of Service or for any other reason deemed necessary to protect the integrity of the system and its users. The staff team is not required to disclose any information about any punishments.
+                    Sie können jederzeit die Löschung Ihres Tags beantragen. Bitte beachten Sie, dass das Entfernen Ihrer Daten dazu führt, dass Sie zukünftig keine Tags mehr setzen können. Datenlöschanfragen können über unseren <Link href="/discord" className="text-blue-400 hover:underline">Discord-Server</Link> eingereicht werden.
                 </p>
 
-                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">8. Limitation of Liability</h2>
+                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">6. Kontosperrung und Banns</h2>
                 <p className="mb-4">
-                    GlobalTags is provided "as is" without any warranties of any kind. We do not guarantee that the mod or API will be error-free, uninterrupted, or secure. You agree that we will not be held liable for any damages or losses, including but not limited to data loss, service interruptions, or account suspensions, resulting from the use of the GlobalTags mod or API.
+                    GlobalTags behält sich das Recht vor, Nutzerkonten nach eigenem Ermessen zu sperren oder zu bannen, wenn diese gegen die AGB verstoßen oder wenn es aus anderen Gründen notwendig ist, die Integrität des Systems und seiner Nutzer zu schützen. Das Team ist nicht verpflichtet, Informationen über Strafen offenzulegen.
                 </p>
 
-                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">9. Modifications to the Service</h2>
+                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">7. Personalisierte Inhalte und Verantwortung</h2>
                 <p className="mb-4">
-                    We reserve the right to modify, suspend, or discontinue the GlobalTags service at any time, with or without notice. You agree that we shall not be held liable for any modifications, suspensions, or discontinuations.
+                    In bestimmten Fällen können Nutzer erworbene Dienstleistungen mit eigenen Inhalten personalisieren (z. B. durch eigene Texturen). Der Nutzer versichert, dass die auf dem Server abgelegten Inhalte nicht gegen geltendes Recht verstoßen. Er verpflichtet sich, die Dienste von GlobalTags nicht zur Speicherung oder Verbreitung von obszönem, pornographischem, rassistischem, bedrohlichem oder verleumderischem Material zu verwenden. Der Nutzer darf mit seinen Dateien keinerlei Urheber-, Marken-, Patent- oder andere Rechte Dritter verletzen. Jeder Nutzer trägt die alleinige Verantwortung für seine Dateien. GlobalTags haftet weder für unmittelbare noch für mittelbare Schäden, die durch hochgeladene Dateien entstehen. Schadensersatzansprüche oder sonstige Regressansprüche gegen GlobalTags sind ausgeschlossen.
                 </p>
 
-                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">10. Contact Us</h2>
-                <p className="mb-4">
-                    If you have any questions or concerns regarding these Terms of Service, please reach out to us through our <Link href="/discord" className="text-blue-400 hover:underline">Discord server</Link>.
-                </p>
+                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">8. Datenschutz</h2>
+                <p className="mb-4">Zahlungen werden ausschließlich über die Monetarisierungsfunktion für sogenannte "Discord Applications" über <Link href="https://discord.com" className="text-blue-400 hover:underline" target="_blank">Discord</Link> abgewickelt. Des Weiteren gelten alle Datenschutzhinweise, die auf www.globaltags.xyz zu finden sind.</p>
+
+                <h2 className="text-2xl font-semibold text-blue-500 border-b-2 border-blue-500 pb-2 mb-4">9. Sonstige Bestimmungen und salvatorische Klausel</h2>
+                <p className="mb-4">Sollten einzelne Bestimmungen dieser AGB unwirksam sein, bleibt die Gültigkeit der restlichen Bestimmungen unberührt.</p>
             </div>
         </div>
     );
