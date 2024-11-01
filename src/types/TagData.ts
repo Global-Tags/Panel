@@ -3,7 +3,10 @@ type TagData = {
     username?: string | null,
     tag?: string | null,
     position: string,
-    icon: string,
+    icon: {
+        type: string,
+        hash: string
+    },
     roles: string[],
     referrals: number
 }
