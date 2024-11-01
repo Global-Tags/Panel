@@ -63,7 +63,7 @@ export default function TagLookup() {
                 username: result.username,
                 tag: result.tag,
                 position: result.position,
-                icon: result.icon.toLowerCase(),
+                icon: result.icon,
                 roles: result.roles,
                 referrals: result.referrals
             });
@@ -119,8 +119,10 @@ export default function TagLookup() {
                     {data.tag ? (
                         <div className="flex items-center">
                             <p className='mr-2'>Tag:</p>
-                            {data.icon != "none" && (
-                                <img src={`https://cdn.rappytv.com/globaltags/icons/${data.icon}.png`} alt={data.icon} className="w-6 h-6" />
+                            {data.icon.type.toLowerCase() != 'none' && data.icon.type.toLowerCase() == 'custom' ? (
+                                <img src={`https://api.globaltags.xyz/players/${data.uuid}/icon/${data.icon.hash}`} alt={data.icon.type.toLowerCase()} className="w-6 h-6" />
+                            ) : (
+                                <img src={`https://cdn.rappytv.com/globaltags/icons/${data.icon.type.toLowerCase()}.png`} alt={data.icon.type.toLowerCase()} className="w-6 h-6" />
                             )}
                             <span className={`ml-1 text-lg ${minecraft.className}`}>{parseMinecraftTag(data.tag)}</span>
                         </div>
