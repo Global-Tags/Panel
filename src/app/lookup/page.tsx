@@ -11,8 +11,8 @@ export const metadata: Metadata = {
     }
 }
 
-export default function Lookup() {
+export default function Lookup({ searchParams: { username }}: { searchParams: { username: string | null } }) {
     return (
-        <TagLookup />
+        <TagLookup prefetch={username} />
     );
 }
