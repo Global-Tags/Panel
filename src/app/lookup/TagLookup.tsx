@@ -1,7 +1,7 @@
 "use client"
 import { minecraft } from "@/app/fonts";
 import TagData from "@/types/TagData";
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
 
 const colorCodeMapping: any = {
     '0': '#000000',
@@ -40,14 +40,13 @@ const parseMinecraftTag = (tag: string) => {
     return elements;
 };
 
-export default function TagLookup() {
-    const [query, setQuery] = useState('');
+export default function TagLookup({ prefetch }: { prefetch: string | null }) {
+    const [query, setQuery] = useState(prefetch || '');
     const [data, setData] = useState<TagData | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
-    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
+    async function lookup() {
         if(!query || query.trim().length < 1) return;
 
         setLoading(true);
@@ -72,6 +71,16 @@ export default function TagLookup() {
         } finally {
             setLoading(false);
         }
+    }
+
+    useEffect(() => {
+        if(!prefetch) return;
+        lookup();
+    }, []);
+
+    const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+        event.preventDefault();
+        lookup();
     };
 
     function capitalize(text: string): string {
@@ -119,11 +128,11 @@ export default function TagLookup() {
                     {data.tag ? (
                         <div className="flex items-center">
                             <p className='mr-2'>Tag:</p>
-                            {data.icon.type.toLowerCase() != 'none' && data.icon.type.toLowerCase() == 'custom' ? (
+                            {data.icon.type.toLowerCase() != 'none' && (data.icon.type.toLowerCase() == 'custom' ? (
                                 <img src={`https://api.globaltags.xyz/players/${data.uuid}/icon/${data.icon.hash}`} alt={data.icon.type.toLowerCase()} className="w-6 h-6" />
                             ) : (
                                 <img src={`https://cdn.rappytv.com/globaltags/icons/${data.icon.type.toLowerCase()}.png`} alt={data.icon.type.toLowerCase()} className="w-6 h-6" />
-                            )}
+                            ))}
                             <span className={`ml-1 text-lg ${minecraft.className}`}>{parseMinecraftTag(data.tag)}</span>
                         </div>
                     ) : <p>Tag: <span className="font-medium">No tag</span></p>}
