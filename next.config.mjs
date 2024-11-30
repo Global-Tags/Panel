@@ -4,12 +4,17 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'id.rappytv.com'
+                hostname: '*'
             }
         ]  
     },
     async redirects() {
         return [
+            {
+                source: "/partner",
+                destination: "/partnership",
+                permanent: false
+            },
             {
                 source: "/legal/imprint",
                 destination: "https://upndevelopment.de/impressum",
