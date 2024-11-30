@@ -52,7 +52,7 @@ export default function PartnershipPage() {
             <li>Active Minecraft server with a minimum of 20 concurrent players.</li>
             <li>Content creators with at least 500 subscribers or followers.</li>
             <li>Ability to promote GlobalTags to your audience.</li>
-            <li>Adherence to our partnership guidelines and community standards.</li>
+            <li>Adherence to our <Link href="/partnership/guidelines" className='text-blue-400 hover:underline'>partnership guidelines and community standards</Link>.</li>
             </ul>
         </div>
   
