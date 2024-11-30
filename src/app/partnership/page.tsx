@@ -6,10 +6,10 @@ import { Metadata } from 'next';
 const { partners } = config;
 
 export const metadata: Metadata = {
-    title: 'Team',
-    description: 'Meet the GlobalTags Team which works hard to make GlobalTags the best experience for you.',
+    title: 'Partnerships',
+    description: 'Join the GlobalTags network! Explore our partners, see requirements, and collaborate with us today.',
     openGraph: {
-        title: 'Team',
+        title: 'Parterships',
         siteName: 'GlobalTags',
         images: '/opengraph-image.png'
     }
@@ -56,7 +56,6 @@ export default function PartnershipPage() {
             </ul>
         </div>
   
-        {/* Current Partners Section */}
         <div className="mb-12">
             <h3 className="text-2xl font-semibold text-gray-100 mb-4">Our Current Partners</h3>
             {partners.length > 0 ? (
