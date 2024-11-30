@@ -4,7 +4,7 @@ const nextConfig = {
         remotePatterns: [
             {
                 protocol: 'https',
-                hostname: 'id.rappytv.com'
+                hostname: '*'
             }
         ]  
     },
