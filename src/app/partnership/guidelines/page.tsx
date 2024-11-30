@@ -17,7 +17,6 @@ export default function PartnershipGuidelinesPage() {
         "Promote GlobalTags effectively through your platforms (e.g., social media, in-game announcements, videos).",
         "Maintain a positive reputation within the Minecraft community, adhering to ethical standards and respectful behavior.",
         "Use approved materials when promoting GlobalTags to ensure accurate and consistent information is shared.",
-        "Maintain active participation in the GlobalTags community, including Discord or other agreed platforms.",
         "Do not misuse the partnership to mislead users or exploit the GlobalTags brand for personal gain.",
         "Ensure the partnership is mutually beneficial, supporting both the partner and the GlobalTags project."
     ];
