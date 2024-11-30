@@ -6,5 +6,6 @@ export const config = {
         categories: JSON.parse(process.env.APP_TEAM_CATEGORIES!) as { id: string, name: string }[],
         members: JSON.parse(process.env.APP_TEAM_MEMBERS!) as { id: string, username: string, category: string, role: string, joinedAt: number }[]
     },
+    partners: JSON.parse(process.env.APP_PARTNERS!) as { name: string, type: string, logo: string }[],
     locale: process.env.APP_LOCALE!
 }
