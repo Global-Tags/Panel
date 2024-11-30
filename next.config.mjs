@@ -11,6 +11,11 @@ const nextConfig = {
     async redirects() {
         return [
             {
+                source: "/partner",
+                destination: "/partnership",
+                permanent: false
+            },
+            {
                 source: "/legal/imprint",
                 destination: "https://upndevelopment.de/impressum",
                 permanent: false
