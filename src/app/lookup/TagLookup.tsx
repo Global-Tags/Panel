@@ -1,43 +1,33 @@
 "use client"
-import { minecraft } from "@/app/fonts";
+import { minecraft, minecraftBold } from "@/app/fonts";
 import TagData from "@/types/TagData";
+import { parseComponent, StyledSegment } from "@/util/Components";
 import { FormEvent, useEffect, useState } from "react";
+import { ObfuscatedText } from "./ObfuscatedText";
 
-const colorCodeMapping: any = {
-    '0': '#000000',
-    '1': '#0000AA',
-    '2': '#00AA00',
-    '3': '#00AAAA',
-    '4': '#AA0000',
-    '5': '#AA00AA',
-    '6': '#FFAA00',
-    '7': '#AAAAAA',
-    '8': '#555555',
-    '9': '#5555FF',
-    'a': '#55FF55',
-    'b': '#55FFFF',
-    'c': '#FF5555',
-    'd': '#FF55FF',
-    'e': '#FFFF55',
-    'f': '#FFFFFF',
-};
+const renderTag = (segments: StyledSegment[]) => {
+    return segments.map((segment, index) => {
+        const isObfuscated = segment.decorations.includes('obfuscated');
 
-const parseMinecraftTag = (tag: string) => {
-    const colorCodePattern = /&([0-9a-fk-or])/g;
-    const parts = tag.split(colorCodePattern);
-    const elements = [];
-
-    for (let i = 0; i < parts.length; i++) {
-        if (i % 2 === 0) {
-            elements.push(parts[i]);
-        } else {
-            const colorCode = parts[i];
-            const color: string = colorCodeMapping[colorCode] || '#FFFFFF';
-            elements.push(<span key={i} style={{ color }}>{parts[++i]}</span>);
-        }
-    }
-
-    return elements;
+        return (
+            <span
+                key={index}
+                style={{
+                fontFamily: segment.decorations.includes('bold') ? minecraftBold.style.fontFamily : minecraft.style.fontFamily,
+                color: segment.color,
+                fontWeight: segment.decorations.includes('bold') ? 'bold' : undefined,
+                fontStyle: segment.decorations.includes('italic') ? 'italic' : undefined,
+                textDecoration: segment.decorations.includes('underlined')
+                    ? 'underline'
+                    : segment.decorations.includes('strikethrough')
+                    ? 'line-through'
+                    : undefined,
+                }}
+            >
+                {isObfuscated ? <ObfuscatedText text={segment.text} /> : segment.text}
+            </span>
+        )
+    });
 };
 
 export default function TagLookup({ prefetch }: { prefetch: string | null }) {
@@ -133,7 +123,7 @@ export default function TagLookup({ prefetch }: { prefetch: string | null }) {
                             ) : (
                                 <img src={`https://cdn.rappytv.com/globaltags/icons/${data.icon.type.toLowerCase()}.png`} alt={data.icon.type.toLowerCase()} className="w-6 h-6" />
                             ))}
-                            <span className={`ml-1 text-lg ${minecraft.className}`}>{parseMinecraftTag(data.tag)}</span>
+                            <span className="ml-1 text-lg">{renderTag(parseComponent(data.tag))}</span>
                         </div>
                     ) : <p>Tag: <span className="font-medium">No tag</span></p>}
                     <p>Tag Position: <span className="font-medium">{capitalize(data.position)}</span></p>
