@@ -137,7 +137,13 @@ export default function TagLookup({ prefetch }: { prefetch: string | null }) {
                         </div>
                     ) : <p>Tag: <span className="font-medium">No tag</span></p>}
                     <p>Tag Position: <span className="font-medium">{capitalize(data.position)}</span></p>
-                    <p>Referral Amount: <span className="font-medium">{data.referrals}</span>{data.referrals > 5 && ' 🎉'}</p>
+                    <div>
+                        <p className="mb-1">Referrals:</p>
+                        <ul className="list-disc pl-5 space-y-1">
+                            <li>In total: <span className="font-medium">{data.referrals.total_referrals}</span>{data.referrals.total_referrals >= 10 && ' 🎉'}</li>
+                            <li>This month: <span className="font-medium">{data.referrals.current_month_referrals}</span>{data.referrals.current_month_referrals >= 5 && ' 🎉'}</li>
+                        </ul>
+                    </div>
                     {data.roles.length > 0 && (
                         <div>
                             <p className="mb-1">Roles:</p>
