@@ -8,7 +8,11 @@ type TagData = {
         hash: string
     },
     roles: string[],
-    referrals: number
+    referrals: {
+        has_referred: boolean,
+        total_referrals: number,
+        current_month_referrals: number
+    }
 }
 
 export default TagData;
