@@ -35,6 +35,15 @@ export default function Home() {
                         className="rounded-xl shadow-2xl"
                     />
                 </div>
+                <div>
+                    <Image 
+                        src="/tag4.png" 
+                        alt="Another example of a custom tag in Minecraft" 
+                        width={500} 
+                        height={300} 
+                        className="rounded-xl shadow-2xl"
+                    />
+                </div>
             </div>
 
 
