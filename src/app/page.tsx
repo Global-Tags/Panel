@@ -3,8 +3,7 @@ import Image from "next/image";
 
 export default function Home() {
     return (
-        <div className="min-h-screen text-white flex flex-col items-center justify-center px-6">
-            {/* Hero Section */}
+        <div className="text-white flex flex-col items-center justify-center px-6">
             <div className="text-center mt-12">
             <h1 className="text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 animate-pulse leading-[1.2]">
                  Welcome to GlobalTags
@@ -15,7 +14,6 @@ export default function Home() {
                 </p>
             </div>
 
-            {/* Hero Images (nebeneinander) */}
             <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
                     <Image 
@@ -35,19 +33,9 @@ export default function Home() {
                         className="rounded-xl shadow-2xl"
                     />
                 </div>
-                <div>
-                    <Image 
-                        src="/tag4.png" 
-                        alt="Another example of a custom tag in Minecraft" 
-                        width={500} 
-                        height={300} 
-                        className="rounded-xl shadow-2xl"
-                    />
-                </div>
             </div>
 
 
-            {/* Features Section */}
             <h2 className="text-4xl font-bold mt-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-yellow-400">
                 🚀 Key Features
             </h2>
@@ -109,8 +97,7 @@ export default function Home() {
     );
 }
 
-/* Feature Card Component */
-const FeatureCard = ({ title, description, icon }) => (
+const FeatureCard = ({ title, description, icon }: { title: string, description: string, icon: string }) => (
     <div className="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
         <h3 className="text-2xl font-semibold text-white flex items-center gap-2">
             {icon} {title}
@@ -119,14 +106,13 @@ const FeatureCard = ({ title, description, icon }) => (
     </div>
 );
 
-/* Call-to-Action Button Component */
-const CTAButton = ({ href, text, color }) => {
-    const colors = {
-        blue: "from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800",
-        green: "from-green-500 to-green-700 hover:from-green-600 hover:to-green-800",
-        purple: "from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800"
-    };
-    
+const colors = {
+    blue: "from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800",
+    green: "from-green-500 to-green-700 hover:from-green-600 hover:to-green-800",
+    purple: "from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800"
+};
+
+const CTAButton = ({ href, text, color }: { href: string, text: string, color: keyof typeof colors }) => {
     return (
         <Link
             href={href}
