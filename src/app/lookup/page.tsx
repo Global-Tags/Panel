@@ -11,7 +11,8 @@ export const metadata: Metadata = {
     }
 }
 
-export default function Lookup({ searchParams: { username }}: { searchParams: { username: string | null } }) {
+export default async function Lookup({ searchParams }: { searchParams: Promise<{ username: string | null }> }) {
+    const { username } = await searchParams;
     return (
         <TagLookup prefetch={username} />
     );
