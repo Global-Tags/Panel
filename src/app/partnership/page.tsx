@@ -16,18 +16,18 @@ export const metadata: Metadata = {
 }
 
 const EmptyBox = () => (
-    <div className="flex-col items-center bg-gray-800 p-4 rounded-lg shadow-md opacity-50 hidden md:flex" />
+    <div className="flex-col items-center bg-[#1f2937] p-6 rounded-lg shadow-lg opacity-50 hidden md:flex" />
 );
 
 const PartnerCard = ({ name, type, logo }: { name: string; type: string; logo: string }) => (
-    <div className="flex flex-col items-center bg-gray-800 p-4 rounded-lg shadow-md">
-        <div className="w-20 h-20 mb-4 relative">
+    <div className="flex flex-col items-center bg-[#1f2937] p-6 rounded-xl shadow-lg transform transition-all hover:scale-105 hover:shadow-xl">
+        <div className="w-24 h-24 mb-4 relative">
             <Image
                 src={logo}
                 alt={name}
-                width={80}
-                height={80}
-                className="rounded-full"
+                width={96}
+                height={96}
+                className="rounded-full border-4 border-indigo-500"
             />
         </div>
         <h3 className={`text-xl font-semibold text-gray-100 mb-2 ${minecraft.className}`}>{name}</h3>
@@ -35,19 +35,18 @@ const PartnerCard = ({ name, type, logo }: { name: string; type: string; logo: s
     </div>
 );
 
-
 export default function PartnershipPage() {
     const emptyBoxes = (3 - (partners.length % 3)) % 3;
 
     return (
       <div className="container mx-auto px-6 py-12 text-center">
-        <h2 className="text-4xl font-bold mb-6 text-gray-100">GlobalTags Partnerships</h2>
+        <h2 className="text-5xl font-bold mb-6 text-indigo-400">GlobalTags Partnerships</h2>
         <p className="text-xl mb-8 text-gray-400">
           Join our network of trusted partners and help us grow the GlobalTags community.
         </p>
   
         <div className="mb-12">
-            <h3 className="text-2xl font-semibold text-gray-100 mb-4">Partnership Requirements</h3>
+            <h3 className="text-3xl font-semibold text-gray-100 mb-4">Partnership Requirements</h3>
             <ul className="text-left text-lg text-gray-400 list-disc list-inside max-w-3xl mx-auto">
             <li>Active Minecraft server with a minimum of 20 concurrent players.</li>
             <li>Content creators with at least 500 subscribers or followers.</li>
@@ -57,7 +56,7 @@ export default function PartnershipPage() {
         </div>
   
         <div className="mb-12">
-            <h3 className="text-2xl font-semibold text-gray-100 mb-4">Our Current Partners</h3>
+            <h3 className="text-3xl font-semibold text-gray-100 mb-4">Our Current Partners</h3>
             {partners.length > 0 ? (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 {partners.map((partner) => (
@@ -84,4 +83,4 @@ export default function PartnershipPage() {
         </div>
       </div>
     );
-};
+}
