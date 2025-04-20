@@ -7,5 +7,10 @@ export const config = {
         members: JSON.parse(process.env.APP_TEAM_MEMBERS!) as { id: string, username: string, category: string, role: string, joinedAt: number }[]
     },
     partners: JSON.parse(process.env.APP_PARTNERS!) as { name: string, type: string, logo: string }[],
+    redirects: {
+        discord: process.env.APP_REDIRECT_DISCORD!,
+        github: process.env.APP_REDIRECT_GITHUB!,
+        imprint: process.env.APP_REDIRECT_IMPRINT!,
+    },
     locale: process.env.APP_LOCALE!
 }

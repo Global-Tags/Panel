@@ -35,6 +35,7 @@ export default function TagLookup({ prefetch }: { prefetch: string | null }) {
     const [data, setData] = useState<TagData | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [copySuccess, setCopySuccess] = useState(false);
 
     async function lookup() {
         if(!query || query.trim().length < 1) return;
@@ -110,14 +111,36 @@ export default function TagLookup({ prefetch }: { prefetch: string | null }) {
 
             {data && (
                 <div className="bg-gray-800 p-6 rounded-lg shadow-lg text-white w-full max-w-md">
-                    <h2 className="text-2xl font-semibold mb-4">Player Information:</h2>
+                    <div className="flex items-center justify-between mb-4">
+                        <h2 className="text-2xl font-semibold">Player Information:</h2>
+                        <div className="relative">
+                            <button
+                                onClick={() => {
+                                    navigator.clipboard.writeText(`${window.location.origin}/lookup?username=${data.username || data.uuid}`);
+                                    setCopySuccess(true);
+                                    setTimeout(() => setCopySuccess(false), 1000);
+                                }}
+                                className={`${copySuccess ? 'bg-green-500 hover:bg-green-600' : 'bg-gray-700 hover:bg-gray-600'} p-2 rounded-full transition-colors duration-300`}
+                                title="Copy link"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e8eaed">
+                                    {copySuccess ? (
+                                        <path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/>
+                                    ) : (
+                                        <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h167q11-35 43-57.5t70-22.5q40 0 71.5 22.5T594-840h166q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560h-80v120H280v-120h-80v560Zm280-560q17 0 28.5-11.5T520-800q0-17-11.5-28.5T480-840q-17 0-28.5 11.5T440-800q0 17 11.5 28.5T480-760Z"/>
+                                    )}
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+              
                     <p>UUID: <span className="font-medium">{data.uuid}</span></p>
                     {data.username && (
                         <p>Username: <span className="font-medium">{data.username}</span></p>
                     )}
                     {data.tag ? (
                         <div className="flex items-center">
-                            <p className='mr-2'>Tag:</p>
+                            <p className="mr-2">Tag:</p>
                             {data.icon.type.toLowerCase() != 'none' && (data.icon.type.toLowerCase() == 'custom' ? (
                                 <img src={`https://api.globaltags.xyz/players/${data.uuid}/icon/${data.icon.hash}`} alt={data.icon.type.toLowerCase()} className="w-6 h-6" />
                             ) : (
