@@ -5,7 +5,8 @@ const uuidRegex = /[a-f0-9]{8}(?:-[a-f0-9]{4}){4}[a-f0-9]{8}|[a-f0-9]{8}(?:[a-f0
 export const revalidate = 0;
 const contentType = { 'Content-Type': 'application/json'}
 
-export async function GET(request: NextRequest, { params: { query } }: { params: { query: string } }) {
+export async function GET(request: NextRequest, { params }: { params: Promise<{ query: string }> }) {
+    const { query } = await params;
     try {
         let name, uuid = query;
         if(!uuidRegex.test(uuid)) {
