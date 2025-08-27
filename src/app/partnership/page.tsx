@@ -3,6 +3,9 @@ import { minecraft } from '../fonts';
 import Link from 'next/link';
 import { config } from '../config';
 import { Metadata } from 'next';
+import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCircle } from '@fortawesome/free-regular-svg-icons';
 
 const { partners } = config;
 
@@ -33,6 +36,13 @@ const PartnerCard = ({ name, type, logo }: { name: string; type: string; logo: s
     </div>
     <h3 className={`text-xl font-semibold text-gray-100 mb-2 ${minecraft.className}`}>{name}</h3>
     <p className="text-sm text-gray-400">{type}</p>
+  </div>
+);
+
+const PartnershipRequirement = ({ icon, text }: { icon: string, text: React.ReactNode }) => (
+  <div className="flex items-start gap-4 p-4 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-70 transition-colors">
+    <span className="text-indigo-400 text-2xl">{icon}</span>
+    <p className="text-gray-300 text-left">{text}</p>
   </div>
 );
 
@@ -71,37 +81,10 @@ export default function PartnershipPage() {
   <h3 className="text-3xl font-extrabold text-centerfont-semibold text-gray-100 mb-6 text-center">Partnership Requirements</h3>
   
   <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-    <div className="flex items-start gap-4 p-4 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-70 transition-colors">
-      <span className="text-indigo-400 text-2xl">🟢</span>
-      <p className="text-gray-300 text-left">
-        Active Minecraft server with a minimum of <strong>20 concurrent players</strong>.
-      </p>
-    </div>
-
-    <div className="flex items-start gap-4 p-4 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition-colors">
-      <span className="text-indigo-400 text-2xl">📈</span>
-      <p className="text-gray-300 text-left">
-        Content creators with at least <strong>500 subscribers or followers</strong>.
-      </p>
-    </div>
-
-    <div className="flex items-start gap-4 p-4 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition-colors">
-      <span className="text-indigo-400 text-2xl">📢</span>
-      <p className="text-gray-300 text-left">
-        Ability to <strong>promote GlobalTags</strong> to your audience.
-      </p>
-    </div>
-
-    <div className="flex items-start gap-4 p-4 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition-colors">
-      <span className="text-indigo-400 text-2xl">📜</span>
-      <p className="text-gray-300 text-left">
-        Adherence to our{' '}
-        <Link href="/partnership/guidelines" className="text-blue-400 hover:underline">
-          partnership guidelines and community standards
-        </Link>
-        .
-      </p>
-    </div>
+    <PartnershipRequirement icon="🟢" text={<>Active Minecraft server with a minimum of <strong>20 concurrent players</strong>.</>} />
+    <PartnershipRequirement icon="📈" text={<>Content creators with at least <strong>500 subscribers or followers</strong>.</>} />
+    <PartnershipRequirement icon="📢" text={<>Ability to <strong>promote GlobalTags</strong> to your audience.</>} />
+    <PartnershipRequirement icon="📜" text={<>Adherence to our <Link href="/partnership/guidelines" className="text-blue-400 hover:underline">partnership guidelines and community standards</Link>.</>} />
   </div>
 </div>
 

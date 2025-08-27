@@ -3,6 +3,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye, faFile, faImage, faStar, IconDefinition } from "@fortawesome/free-regular-svg-icons";
+import { faCode, faPalette } from "@fortawesome/free-solid-svg-icons";
 
 export default function Home() {
     return (
@@ -48,32 +51,32 @@ export default function Home() {
                 <FeatureCard
                     title="Customizable Tags"
                     description="Position your tag anywhere - above, below, left, or right of your username."
-                    icon="🎨"
+                    icon={faFile}
                 />
                 <FeatureCard
                     title="Hex Color Support"
                     description="Customize your tags with any hex color for a unique look!"
-                    icon="🌈"
+                    icon={faPalette}
                 />
                 <FeatureCard
                     title="Icon Support"
                     description="Add unique icons next to your tag for a personal touch."
-                    icon="⭐"
+                    icon={faImage}
                 />
                 <FeatureCard
                     title="Java Wrapper for Easy Mod Integration"
                     description="Easily integrate GlobalTags into any mod with our Java Wrapper which ensures high compatibility due to the usage of Java 11."
-                    icon="🛠️"
+                    icon={faCode}
                 />
                 <FeatureCard
                     title="Visible to Everyone"
                     description="Your tag is seen by all players using GlobalTags-enabled mods."
-                    icon="👀"
+                    icon={faEye}
                 />
                 <FeatureCard
                     title="Unlock Premium Icon"
                     description="Use GlobalTags for free, and unlock a unique icon for your tag with the premium plan!"
-                    icon="🌟"
+                    icon={faStar}
                 />
 
             </div>
@@ -146,10 +149,10 @@ export default function Home() {
   );
 }
 
-const FeatureCard = ({ title, description, icon }: { title: string, description: string, icon: string }) => (
+const FeatureCard = ({ title, description, icon }: { title: string, description: string, icon: IconDefinition }) => (
     <div className="bg-gray-800 bg-opacity-50 p-6 rounded-xl shadow-lg transform hover:scale-105 transition duration-300">
         <h3 className="text-2xl font-semibold text-white flex items-center gap-2">
-            {icon} {title}
+            <FontAwesomeIcon icon={icon} /> {title}
         </h3>
         <p className="text-gray-300 mt-2">{description}</p>
     </div>
