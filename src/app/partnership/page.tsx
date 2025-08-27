@@ -46,24 +46,8 @@ export default function PartnershipPage() {
         Join our network of trusted partners and help us grow the GlobalTags community.
       </p>
 
-      <div className="mb-12">
-        <h3 className="text-3xl font-semibold text-gray-100 mb-4">Partnership Requirements</h3>
-        <ul className="text-left text-lg text-gray-400 list-disc list-inside max-w-3xl mx-auto">
-          <li>Active Minecraft server with a minimum of 20 concurrent players.</li>
-          <li>Content creators with at least 500 subscribers or followers.</li>
-          <li>Ability to promote GlobalTags to your audience.</li>
-          <li>
-            Adherence to our{' '}
-            <Link href="/partnership/guidelines" className="text-blue-400 hover:underline">
-              partnership guidelines and community standards
-            </Link>
-            .
-          </li>
-        </ul>
-      </div>
-
-      <div className="mb-12">
-        <h3 className="text-3xl font-semibold text-gray-100 mb-4">Our Current Partners</h3>
+<div className="mb-12">
+        <h3 className="text-3xl font-extrabold text-centerfont-semibold text-gray-100 mb-6 text-center">Our Current Partners</h3>
         {partners.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {partners.map((partner) => (
@@ -82,6 +66,44 @@ export default function PartnershipPage() {
           <p className="text-lg text-gray-400">We currently have no partners. Be the first to join!</p>
         )}
       </div>
+      
+     <div className="mb-12">
+  <h3 className="text-3xl font-extrabold text-centerfont-semibold text-gray-100 mb-6 text-center">Partnership Requirements</h3>
+  
+  <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+    <div className="flex items-start gap-4 p-4 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-70 transition-colors">
+      <span className="text-indigo-400 text-2xl">🟢</span>
+      <p className="text-gray-300 text-left">
+        Active Minecraft server with a minimum of <strong>20 concurrent players</strong>.
+      </p>
+    </div>
+
+    <div className="flex items-start gap-4 p-4 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition-colors">
+      <span className="text-indigo-400 text-2xl">📈</span>
+      <p className="text-gray-300 text-left">
+        Content creators with at least <strong>500 subscribers or followers</strong>.
+      </p>
+    </div>
+
+    <div className="flex items-start gap-4 p-4 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition-colors">
+      <span className="text-indigo-400 text-2xl">📢</span>
+      <p className="text-gray-300 text-left">
+        Ability to <strong>promote GlobalTags</strong> to your audience.
+      </p>
+    </div>
+
+    <div className="flex items-start gap-4 p-4 bg-gray-800 rounded-lg shadow-lg hover:bg-gray-700 transition-colors">
+      <span className="text-indigo-400 text-2xl">📜</span>
+      <p className="text-gray-300 text-left">
+        Adherence to our{' '}
+        <Link href="/partnership/guidelines" className="text-blue-400 hover:underline">
+          partnership guidelines and community standards
+        </Link>
+        .
+      </p>
+    </div>
+  </div>
+</div>
 
       <div className="mt-20 max-w-3xl mx-auto bg-gray-900/90 rounded-xl shadow-2xl p-6 text-white">
         <h3 className="text-2xl font-extrabold mb-3 text-center">Growing Stronger, Together</h3>
