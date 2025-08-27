@@ -105,7 +105,7 @@ export default function PartnershipPage() {
   </div>
 </div>
 
-      <div className="mt-20 max-w-3xl mx-auto bg-gray-900/90 rounded-xl shadow-2xl p-6 text-white">
+      <div className="mt-20 max-w-3xl mx-auto bg-gray-900/90 rounded-xl p-6 text-white">
         <h3 className="text-2xl font-extrabold mb-3 text-center">Growing Stronger, Together</h3>
         <p className="text-sm text-gray-300 mb-6 text-center leading-snug">
           At GlobalTags, we believe the best things happen when we work together. By joining forces,

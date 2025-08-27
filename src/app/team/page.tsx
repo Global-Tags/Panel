@@ -136,8 +136,8 @@ export default function TeamPage() {
         </p>
       )}
 
-      {/* Join the Team CTA */}
-      <div className="mt-20 max-w-3xl mx-auto bg-gray-900/90 rounded-xl shadow-2xl p-6 text-white">
+      {/* Join the Team CTA - you dont need to be the best*/}
+      <div className="mt-20 max-w-3xl mx-auto bg-gray-900/90 rounded-xl p-6 text-white">
         <h3 className="text-2xl font-extrabold mb-3 text-center">
           Join the Team & Help Shape the Future of GlobalTags!
         </h3>
