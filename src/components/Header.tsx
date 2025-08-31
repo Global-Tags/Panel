@@ -12,13 +12,15 @@ export default function Header() {
             <nav className="container mx-auto flex justify-between items-center px-6">
                 {/* Logo */}
                 <div className="flex items-center">
-                    <Image
-                        src="/icon.png"
-                        alt="Global-Tags Logo"
-                        width={50}
-                        height={50}
-                        className="rounded-full"
-                    />
+                    <Link href="/">
+                        <Image
+                            src="/icon.png"
+                            alt="Global-Tags Logo"
+                            width={50}
+                            height={50}
+                            className="rounded-full"
+                        />
+                    </Link>
                 </div>
 
                 {/* Desktop Navigation */}
@@ -59,9 +61,8 @@ export default function Header() {
 
                 {/* Sidebar Menü */}
                 <div
-                    className={`fixed top-0 left-0 h-screen w-screen bg-gray-900 text-white shadow-lg transform ${
-                        isOpen ? "translate-x-0" : "translate-x-full"
-                    } transition-transform duration-300 ease-in-out md:hidden flex flex-col z-50`}
+                    className={`fixed top-0 left-0 h-screen w-screen bg-gray-900 text-white shadow-lg transform ${isOpen ? "translate-x-0" : "translate-x-full"
+                        } transition-transform duration-300 ease-in-out md:hidden flex flex-col z-50`}
                 >
                     {/* Close Button */}
                     <div className="flex justify-end p-5">
