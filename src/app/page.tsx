@@ -5,7 +5,7 @@ export default function Home() {
     return (
         <div className="text-white flex flex-col items-center justify-center px-6">
             <div className="text-center mt-12">
-            <h1 className="text-7xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500 animate-pulse leading-[1.2]">
+            <h1 className="text-7xl font-extrabold bg-clip-text text-transparent bg-linear-to-r from-blue-400 to-purple-500 animate-pulse leading-[1.2]">
                  Welcome to GlobalTags
                 </h1>
 
@@ -22,6 +22,7 @@ export default function Home() {
                         width={500} 
                         height={300} 
                         className="rounded-xl shadow-2xl"
+                        loading='eager'
                     />
                 </div>
                 <div>
@@ -31,12 +32,13 @@ export default function Home() {
                         width={500} 
                         height={300} 
                         className="rounded-xl shadow-2xl"
+                        loading='eager'
                     />
                 </div>
             </div>
 
 
-            <h2 className="text-4xl font-bold mt-16 text-center bg-clip-text text-transparent bg-gradient-to-r from-pink-400 to-yellow-400">
+            <h2 className="text-4xl font-bold mt-16 text-center bg-clip-text text-transparent bg-linear-to-r from-pink-400 to-yellow-400">
                 🚀 Key Features
             </h2>
             
@@ -82,7 +84,7 @@ export default function Home() {
 
             {/* Contribution Section */}
             <section className="mt-20 text-center">
-                <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-yellow-400 to-red-400">
+                <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-yellow-400 to-red-400">
                     🤝 Get Involved
                 </h2>
                 <p className="text-lg text-gray-300 mt-4 max-w-xl mx-auto">
@@ -116,7 +118,7 @@ const CTAButton = ({ href, text, color }: { href: string, text: string, color: k
     return (
         <Link
             href={href}
-            className={`px-8 py-3 rounded-full text-lg font-semibold text-white bg-gradient-to-r ${colors[color]} shadow-lg hover:scale-105 transition-all duration-300`}
+            className={`px-8 py-3 rounded-full text-lg font-semibold text-white bg-linear-to-r ${colors[color]} shadow-lg hover:scale-105 transition-all duration-300`}
             target="_blank"
             rel="noopener noreferrer"
         >
