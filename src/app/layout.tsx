@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { config } from "./config";
+import Script from "next/script";
 
 export const metadata: Metadata = {
     metadataBase: new URL(config.appUrl),
@@ -38,13 +39,20 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body className={"antialiased"}>
-            <div className="flex flex-col bg-gray-900 min-h-screen">
-                <Header />
-                <main className="flex justify-center grow container mx-auto px-4 py-8">
-                    {children}
-                </main>
-                <Footer />
-            </div>
+                <div className="flex flex-col bg-gray-900 min-h-screen">
+                    <Header />
+                    <main className="flex justify-center grow container mx-auto px-4 py-8">
+                        {children}
+                    </main>
+                    <Footer />
+                </div>
+                {config.tracking.enabled && (
+                    <Script
+                        src="/api/script.js"
+                        data-site-id={config.tracking.siteId}
+                        strategy="afterInteractive"
+                    />
+                )}
             </body>
         </html>
     );
