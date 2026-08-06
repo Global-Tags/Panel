@@ -12,12 +12,5 @@ export const config = {
         github: process.env.APP_REDIRECT_GITHUB!,
         imprint: process.env.APP_REDIRECT_IMPRINT!,
     },
-    locale: process.env.APP_LOCALE!,
-    tracking: {
-        host: process.env.NEXT_PUBLIC_RYBBIT_HOST,
-        siteId: process.env.NEXT_PUBLIC_RYBBIT_SITE_ID,
-        get enabled() {
-            return this.host !== undefined && this.siteId !== undefined;
-        }
-    }
+    locale: process.env.APP_LOCALE!
 }

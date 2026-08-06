@@ -18,48 +18,52 @@ export default function Header() {
                         width={50}
                         height={50}
                         className="rounded-full"
-                        loading="eager"
                     />
                 </div>
 
+                {/* Desktop Navigation */}
                 <ul className="hidden md:flex space-x-10 text-white text-lg font-semibold">
                     <li>
                         <Link href="/" className="relative group">
                             <span className="transition-all duration-200">Home</span>
-                            <span className="absolute left-0 -bottom-0.75 w-full h-0.5 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <span className="absolute left-0 bottom-[-3px] w-full h-[2px] bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                         </Link>
                     </li>
                     <li>
                         <Link href="/lookup" className="relative group">
                             <span className="transition-all duration-200">Lookup</span>
-                            <span className="absolute left-0 -bottom-0.75 w-full h-0.5 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <span className="absolute left-0 bottom-[-3px] w-full h-[2px] bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                         </Link>
                     </li>
                     <li>
                         <Link href="/team" className="relative group">
                             <span className="transition-all duration-200">Team</span>
-                            <span className="absolute left-0 -bottom-0.75 w-full h-0.5 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <span className="absolute left-0 bottom-[-3px] w-full h-[2px] bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                         </Link>
                     </li>
                     <li>
                         <Link href="/partnership" className="relative group">
                             <span className="transition-all duration-200">Partner</span>
-                            <span className="absolute left-0 -bottom-0.75 w-full h-0.5 bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                            <span className="absolute left-0 bottom-[-3px] w-full h-[2px] bg-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                         </Link>
                     </li>
                 </ul>
 
+                {/* Mobile Menü Button */}
                 <button className="md:hidden text-white focus:outline-none" onClick={() => setIsOpen(true)}>
+                    {/* Hamburger Icon als SVG */}
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="h-8 w-8">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
                     </svg>
                 </button>
 
+                {/* Sidebar Menü */}
                 <div
                     className={`fixed top-0 left-0 h-screen w-screen bg-gray-900 text-white shadow-lg transform ${
                         isOpen ? "translate-x-0" : "translate-x-full"
                     } transition-transform duration-300 ease-in-out md:hidden flex flex-col z-50`}
                 >
+                    {/* Close Button */}
                     <div className="flex justify-end p-5">
                         <button onClick={() => setIsOpen(false)} className="text-white">
                             {/* Schließen Icon als SVG */}
@@ -69,6 +73,7 @@ export default function Header() {
                         </button>
                     </div>
 
+                    {/* Mobile Links */}
                     <ul className="flex flex-col items-center space-y-10 px-8 mt-10 text-3xl font-bold">
                         <li>
                             <Link

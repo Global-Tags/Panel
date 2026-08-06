@@ -40,7 +40,7 @@ To dive deeper into the capabilities of the GlobalTags API, click the button bel
 
 Stay updated with the latest statistics related to the GlobalTags API. Click the button below to view current stats:
 
-[View Current Stats](https://www.globaltags.xyz/stats)
+[View Current Stats](https://gt.rappy.me/stats)
 
 ## License
 
