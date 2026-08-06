@@ -270,7 +270,7 @@ export default function GamescomPage() {
             viewport={{ once: true, margin: '-60px' }}
             className="grid items-start gap-12 lg:grid-cols-2 lg:gap-20"
           >
-            <Reveal className="relative h95 overflow-hidden rounded-3xl bg-[#07070e] sm:h-110 lg:h-150">
+            <Reveal className="relative h-95 overflow-hidden rounded-3xl bg-[#07070e] sm:h-110 lg:h-150">
               <Image
                 src="/gamescom/card.jpg"
                 alt="GlobalTags Premium card"
