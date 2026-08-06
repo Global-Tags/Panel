@@ -35,7 +35,7 @@ const TeamMember = ({ id, username, description, joinedAt }: { id: string, usern
                 </div>
             )}
         </div>
-        <h3 className="text-2xl font-bold text-indigo-400 mb-2 transition-transform duration-300 ease-in-out hover:text-indigo-300 hover:transform hover:translate-y-[-2px]">
+        <h3 className="text-2xl font-bold text-indigo-400 mb-2 transition-transform duration-300 ease-in-out hover:text-indigo-300 hover:transform hover:-translate-y-0.5">
             {username}
         </h3>
         <p className="text-lg text-gray-300 text-center">{description}</p>
@@ -45,7 +45,7 @@ const TeamMember = ({ id, username, description, joinedAt }: { id: string, usern
                 alt='laby.net Profile'
                 width={24}
                 height={24}
-                className='inline-block transition-transform duration-300 ease-in-out hover:translate-y-[-2px]'
+                className='inline-block transition-transform duration-300 ease-in-out hover:-translate-y-0.5'
             />
         </Link>
     </div>

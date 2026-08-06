@@ -40,7 +40,7 @@ export default function RootLayout({
             <body className={"antialiased"}>
             <div className="flex flex-col bg-gray-900 min-h-screen">
                 <Header />
-                <main className="flex justify-center flex-grow container mx-auto px-4 py-8">
+                <main className="flex justify-center grow container mx-auto px-4 py-8">
                     {children}
                 </main>
                 <Footer />
