@@ -63,7 +63,7 @@ function Reveal({
   );
 }
 
-const GAMESCOM_DATE = new Date('2026-08-26T09:00:00+02:00').getTime();
+const GAMESCOM_DATE = new Date('2026-08-27T12:00:00+02:00').getTime();
 
 type CountdownState = {
   days: number;
